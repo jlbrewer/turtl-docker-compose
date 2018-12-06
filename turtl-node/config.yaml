@@ -1,0 +1,52 @@
+---
+server:
+  port: 8181
+
+db:
+  host: 'turtl-postgres'
+  port: 5432
+  database: 'turtl'
+  user: 'turtl'
+  password: 'CHANGEME'
+  pool: 24
+
+loglevel: 'info'
+
+app:
+  enable_bookmarker_proxy: false
+  # no trailing slash
+  api_url: 'http://127.0.0.1:8181'
+  www_url: 'https://example.com'
+  emails:
+    admin: 'myemail@goes.here'
+    info: 'Turtl <info@turtlapp.com>'
+    invites: 'myemail@goes.here'
+  secure_hash_salt: "Put something else here"
+  allow_unconfirmed_invites: true
+
+sync:
+  # how many sync records can a client send at a time? it's a good idea to have
+  # a limit here, lest a rogue client flood the server with sync items
+  max_bulk_sync_records: 32
+
+plugins:
+  plugin_location: '/opt/turtl/plugins'
+  analytics:
+    enabled: false
+  email:
+    enabled: false
+  premium:
+    enabled: false
+
+uploads:
+  local: '/tmp/turtl/server/public/uploads'
+  local_proxy: true
+  url: 'http://127.0.0.1:8181/uploads'
+
+s3:
+  token: 'IHADAPETSNAKEBUTHEDIEDNOOOOO'
+  secret: ''
+  bucket: ''
+  endpoint: 'https://s3.amazonaws.com'
+
+

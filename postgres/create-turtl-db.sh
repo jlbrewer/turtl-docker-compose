@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+    CREATE USER turtl WITH PASSWORD 'CHANGEME' LOGIN;
+    CREATE DATABASE turtl;
+    GRANT ALL PRIVILEGES ON DATABASE turtl TO turtl;
+EOSQL
